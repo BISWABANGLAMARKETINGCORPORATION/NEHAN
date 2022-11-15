@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Nehan </title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+<style>
+body {
+  background-image: url("bg.jpg");
+  background-position: center;
+    background-repeat: no-repeat;
+  background-size: cover;
+  margin:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  font-family: cursive;
+  overflow: hidden;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.year {
+  font-size: 7em;
+  color: white;
+  font-weight: bold;
+}
+
+.countdown {
+  margin: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  color: white;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown div {
+  margin: 0 15px;
+  font-size: 2.5em;
+  font-weight: 500;
+  margin-top: -25px;
+  position: relative;
+  text-align: center;
+  width: 100px;
+}
+
+.countdown div::before {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  font-size: 0.35em;
+  line-height: 35px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  width: 100%;
+  height: 35px;
+}
+
+.countdown #day::before {
+  content: "Days";
+}
+
+.countdown #hour::before {
+  content: "Hours";
+}
+
+.countdown #minute::before {
+  content: "Minutes";
+}
+
+.countdown #second::before {
+  content: "Seconds";
+}
+</style>
+
+  <h2>Happy Birthday Nehan</h2>
+  <div class="year">2022</div>
+  <div class="countdown">
+    <div id="day">29</div>
+    <div id="hour">12</div>
+    <div id="minute">00</div>
+    <div id="second">00</div>
+  </div>
+  
+  <script>
+      const dayEl = document.getElementById("day");
+const hourEl = document.getElementById("hour");
+const minuteEl = document.getElementById("minute");
+const secondEl = document.getElementById("second");
+
+const birthdayTime = new Date("dec 29, 2022 20:50:30").getTime();
+
+updateCountdown();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const gap = birthdayTime  - now;
+
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const d = Math.floor(gap / day);
+  const h = Math.floor((gap % day) / hour);
+  const m = Math.floor((gap % hour) / minute);
+  const s = Math.floor((gap % minute) / second);
+  dayEl.innerText = d;
+  hourEl.innerText = h;
+  minuteEl.innerText = m;
+  secondEl.innerText = s;
+  setTimeout(updateCountdown, 1000)
+}
+
+  </script>
+</body>
+
+</html>
