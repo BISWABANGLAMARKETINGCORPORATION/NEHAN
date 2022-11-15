@@ -6,13 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Birthday Nehan </title>
-  <link rel="stylesheet" href="style.css" />
-
+  
 </head>
 
 <body>
 
->
+
       <img src="https://svgshare.com/i/jA_.svg" class="balloon balloon-1" />
       <img src="https://svgshare.com/i/jBW.svg" class="balloon balloon-2" />
       <img src="https://svgshare.com/i/jA_.svg" class="balloon balloon-3" />
@@ -24,9 +23,9 @@
     </div>
 <style>
 body {
-  background-image: url("bg.JPG");
+  background-image: url("bg.jpg");
   background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
   background-size: cover;
   margin:0;
   display: flex;
@@ -39,16 +38,21 @@ body {
 }
 
 h2 {
-  color: white;
-  text-align: center;
+  color:ghostwhite;
+ text-align: left;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
+  font-size: 3.2em;
+ /* text-decoration-line: overline underline;
+  text-decoration-style: wavy;*/
+
 }
 
 .year {
-  font-size: 7em;
+  font-size: 6em;
   color: white;
   font-weight: bold;
+  text-align: left;
 }
 
 .countdown {
@@ -60,6 +64,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .countdown div {
@@ -75,7 +80,7 @@ h2 {
 .countdown div::before {
   content: "";
   position: absolute;
-  bottom: -30px;
+  bottom: -20px;
   left: 0;
   font-size: 0.35em;
   line-height: 35px;
@@ -83,7 +88,7 @@ h2 {
   letter-spacing: 1px;
   font-weight: 500;
   width: 100%;
-  height: 35px;
+  height: 20px;
 }
 
 .countdown #day::before {
@@ -226,10 +231,24 @@ h2 {
 const hourEl = document.getElementById("hour");
 const minuteEl = document.getElementById("minute");
 const secondEl = document.getElementById("second");
+const birthdayTime = new Date("dec 29, 2022 00:00:0").getTime();
+var date = new Date();
+var birthDate=new Date('2022-12-29');
 
-const birthdayTime = new Date("dec 29, 2022 00:00:01").getTime();
+//updateCountdown();
 
-updateCountdown();
+if(date>birthDate)
+{
+    setTimeout(function(){
+    window.location.replace("http://www.w3schools.com");
+    }, 10000);  
+    
+}
+else
+{
+    updateCountdown();
+}  
+
 
 function updateCountdown() {
   const now = new Date().getTime();
@@ -248,7 +267,7 @@ function updateCountdown() {
   hourEl.innerText = h;
   minuteEl.innerText = m;
   secondEl.innerText = s;
-  setTimeout(updateCountdown, 1000)
+ setTimeout(updateCountdown, 1000) 
 }
 
   </script>
